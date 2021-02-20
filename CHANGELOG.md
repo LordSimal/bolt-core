@@ -1,6 +1,102 @@
 Changelog
 =========
 
+## 4.1.13
+
+Released: 2021-02-14
+
+This release includes two security-related fixes. Our thanks go out to 
+[Silvia Väli, Clarified Security](https://clarifiedsecurity.com/silvia-vali/) 
+and [Romain Richard](https://github.com/bigz) for identifying these issues and 
+disclosing them to us responsibly! 👏🙏 
+
+### 🐛 Bug fixes
+
+- Selects with `multiple: true` always have an array value (I-Valchev, [#2385](https://github.com/bolt/core/pull/2385))
+- Make sure the magic `get` uses the configured `date_format` (I-Valchev, [#2383](https://github.com/bolt/core/pull/2383))
+- Fix `|order` filter by date (I-Valchev, [#2382](https://github.com/bolt/core/pull/2382))
+- Keep cache timestamps for all `.env` files (I-Valchev, [#2378](https://github.com/bolt/core/pull/2378))
+- Fix date field with `required: true` (I-Valchev, [#2377](https://github.com/bolt/core/pull/2377))
+- Make multiselect fields iterable in Twig (I-Valchev, [#2373](https://github.com/bolt/core/pull/2373))
+- Fix slow tests (bobdenotter, [#2370](https://github.com/bolt/core/pull/2370))
+- Use TemplateSelect `filter` option with directories (I-Valchev, [#2361](https://github.com/bolt/core/pull/2361))
+- Fix new checkbox value on existing records (I-Valchev, [#2350](https://github.com/bolt/core/pull/2350))
+- Fix `record|thumbnail` getting different image than `record|image` (I-Valchev, [#2347](https://github.com/bolt/core/pull/2347))
+- Fix `|svg` filter for images outside of set (I-Valchev, [#2345](https://github.com/bolt/core/pull/2345))
+
+### 🛠️ Miscellaneous
+
+- [security] Don't allow Path Traversal (bobdenotter, [#2371](https://github.com/bolt/core/pull/2371))
+- Fix e-mail address in github issue template (bobdenotter, [#2367](https://github.com/bolt/core/pull/2367))
+- [security] Forbid certain theme files from public exposure (I-Valchev, [#2348](https://github.com/bolt/core/pull/2348))
+
+### ⚙️ Code Quality / Developer Experience
+
+- Remove incorrect `PHPDoc @var` tag in RelationRepository (I-Valchev, [#2374](https://github.com/bolt/core/pull/2374))
+- Remove (abandoned) `sensiolabs/security-checker` (bobdenotter, [#2356](https://github.com/bolt/core/pull/2356))
+- Prepare Release 4.1.12 (bobdenotter, [#2339](https://github.com/bolt/core/pull/2339))
+
+
+## 4.1.12
+
+Released: 2021-01-25
+
+### 🐛 Bug fixes
+
+- Clear config cache on `bin/console cache:clear` (I-Valchev, [#2334](https://github.com/bolt/core/pull/2334))
+- Fix YouTube oEmbed missing `title` accessibility issue (I-Valchev, [#2333](https://github.com/bolt/core/pull/2333))
+- Don't require user to re-authenticate after changing user locale (I-Valchev, [#2322](https://github.com/bolt/core/pull/2322))
+- Use default locale when not explicitly stated (I-Valchev, [#2313](https://github.com/bolt/core/pull/2313))
+
+### 🤖 Tests
+
+- Fix phpstan 0.12.67 failing on `Cannot instantiate interface Bolt\Entity\FieldInterface` (I-Valchev, [#2315](https://github.com/bolt/core/pull/2315))
+
+### ⚙️ Code Quality / Developer Experience
+
+- Pin API-platform to `2.5.*` for now (bobdenotter, [#2336](https://github.com/bolt/core/pull/2336))
+
+
+## 4.1.11
+
+Released: 2021-01-13
+
+### 🐛 Bug fixes
+
+- Fix setcontent query for checkbox `false` values (I-Valchev, [#2310](https://github.com/bolt/core/pull/2310))
+- Make sure "Other Content" works on mobile (I-Valchev, [#2297](https://github.com/bolt/core/pull/2297))
+- Fix `default` option for select field (I-Valchev, [#2296](https://github.com/bolt/core/pull/2296))
+- Fix casting exception with `orderby` when using MySQL/PostgreSQL (I-Valchev, [#2290](https://github.com/bolt/core/pull/2290))
+- Fix allow twig and deprecate `record|allow_twig` requirement (I-Valchev, [#2289](https://github.com/bolt/core/pull/2289))
+- Remove `<select>`-tag spacing (I-Valchev, [#2283](https://github.com/bolt/core/pull/2283))
+- Allow `id` in sanitiser (purifier). Don't sanitise fields with `sanitise: false` (I-Valchev, [#2280](https://github.com/bolt/core/pull/2280))
+
+### ⚙️ Code Quality / Developer Experience
+
+- Bump axios from 0.19.2 to 0.21.1 (dependabot[bot], [#2285](https://github.com/bolt/core/pull/2285))
+- [4.1.x] Fix behat tests (I-Valchev, [#2282](https://github.com/bolt/core/pull/2282))
+
+
+## 4.1.10
+
+Released: 2021-01-03
+
+### 🐛 Bug fixes
+
+- Fix escaping of ContentType names in listing pages (bobdenotter, [#2266](https://github.com/bolt/core/pull/2266))
+- Set `base-2020` in `GeneralParser.php` (bobdenotter, [#2264](https://github.com/bolt/core/pull/2264))
+- Don't sanitise markdown fields (I-Valchev, [#2255](https://github.com/bolt/core/pull/2255))
+- Pager `Previous` and `Next` are localized labels. `active` state for basic pager. (I-Valchev, [#2254](https://github.com/bolt/core/pull/2254))
+
+### 🛠️ Miscellaneous
+
+- Update `routes.yaml` (peterboorsma, [#2273](https://github.com/bolt/core/pull/2273))
+
+### ⚙️ Code Quality / Developer Experience
+
+- Remove (abandoned) `peterkahl/country-code-to-emoji-flag` package (bobdenotter, [#2276](https://github.com/bolt/core/pull/2276))
+- Force php 7.2 in GitHub Actions (I-Valchev, [#2253](https://github.com/bolt/core/pull/2253))
+
 ## 4.1.9
 
 Released: 2020-12-14
